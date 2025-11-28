@@ -15,11 +15,20 @@ let package = Package(
             targets: ["Data"]
         ),
     ],
+    dependencies: [
+        .package(name: "Domain", path: "/../Domain"),
+        .package(url: "https://github.com/Moya/Moya.git", .upToNextMajor(from: "15.0.0"))
+    ],
     targets: [
         // Targets are the basic building blocks of a package, defining a module or a test suite.
         // Targets can depend on other targets in this package and products from dependencies.
         .target(
-            name: "Data"
+            name: "Data",
+            dependencies: [
+                "Domain",
+                .product(name: "Moya", package: "Moya"),
+                .product(name: "CombineMoya", package: "Moya"),
+            ],
         ),
 
     ]
