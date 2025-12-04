@@ -19,9 +19,10 @@ public final class DefaultCatRepository: CatRepository {
         self.catService = catService
     }
     
-    public func fetchCats(count: Int) -> AnyPublisher<[CatEntity], MoyaError> {
+    public func fetchCats(count: Int) -> AnyPublisher<[CatEntity], Error> {
         return catService.fetchCats(count: count)
             .map({ $0.map(\.entity) })
+            .mapError({ $0 as Error })
             .eraseToAnyPublisher()
     }
 }

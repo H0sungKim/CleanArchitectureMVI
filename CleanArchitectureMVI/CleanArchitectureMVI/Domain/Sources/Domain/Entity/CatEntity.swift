@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import CoreGraphics
 
 public struct CatEntity: Entity {
     public let imageUrl: URL?

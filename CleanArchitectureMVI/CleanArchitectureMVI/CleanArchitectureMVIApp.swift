@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Presentation
 
 @main
 struct CleanArchitectureMVIApp: App {

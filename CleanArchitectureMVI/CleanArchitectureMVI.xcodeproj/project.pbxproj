@@ -6,6 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		968001F02ED9DCE9003C8EE4 /* Data in Frameworks */ = {isa = PBXBuildFile; productRef = 968001EF2ED9DCE9003C8EE4 /* Data */; };
+		968001F22ED9DCE9003C8EE4 /* Domain in Frameworks */ = {isa = PBXBuildFile; productRef = 968001F12ED9DCE9003C8EE4 /* Domain */; };
+		968001F42ED9DCE9003C8EE4 /* Presentation in Frameworks */ = {isa = PBXBuildFile; productRef = 968001F32ED9DCE9003C8EE4 /* Presentation */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		96EC95822ED8004F001AB216 /* CleanArchitectureMVI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CleanArchitectureMVI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -37,16 +43,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				968001F22ED9DCE9003C8EE4 /* Domain in Frameworks */,
+				968001F42ED9DCE9003C8EE4 /* Presentation in Frameworks */,
+				968001F02ED9DCE9003C8EE4 /* Data in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		968001EE2ED9DCE9003C8EE4 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		96EC95792ED8004F001AB216 = {
 			isa = PBXGroup;
 			children = (
 				96EC95842ED8004F001AB216 /* CleanArchitectureMVI */,
+				968001EE2ED9DCE9003C8EE4 /* Frameworks */,
 				96EC95832ED8004F001AB216 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -79,6 +96,9 @@
 			);
 			name = CleanArchitectureMVI;
 			packageProductDependencies = (
+				968001EF2ED9DCE9003C8EE4 /* Data */,
+				968001F12ED9DCE9003C8EE4 /* Domain */,
+				968001F32ED9DCE9003C8EE4 /* Presentation */,
 			);
 			productName = CleanArchitectureMVI;
 			productReference = 96EC95822ED8004F001AB216 /* CleanArchitectureMVI.app */;
@@ -348,6 +368,21 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		968001EF2ED9DCE9003C8EE4 /* Data */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Data;
+		};
+		968001F12ED9DCE9003C8EE4 /* Domain */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Domain;
+		};
+		968001F32ED9DCE9003C8EE4 /* Presentation */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Presentation;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 96EC957A2ED8004F001AB216 /* Project object */;
 }

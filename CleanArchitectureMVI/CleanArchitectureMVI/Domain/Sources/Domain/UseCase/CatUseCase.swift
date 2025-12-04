@@ -7,10 +7,9 @@
 
 import Foundation
 import Combine
-import Moya
 
 public protocol CatUseCase {
-    func fetchCats(count: Int) -> AnyPublisher<[CatEntity], MoyaError>
+    func fetchCats(count: Int) -> AnyPublisher<[CatEntity], Error>
 }
 
 public final class DefaultCatUseCase: CatUseCase {
@@ -20,7 +19,7 @@ public final class DefaultCatUseCase: CatUseCase {
         self.catRepository = catRepository
     }
     
-    public func fetchCats(count: Int) -> AnyPublisher<[CatEntity], MoyaError> {
+    public func fetchCats(count: Int) -> AnyPublisher<[CatEntity], Error> {
         return catRepository.fetchCats(count: count)
     }
 }

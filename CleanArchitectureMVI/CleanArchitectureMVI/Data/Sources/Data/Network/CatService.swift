@@ -6,8 +6,9 @@
 //
 
 import Foundation
-import Moya
 import Combine
+
+import Moya
 import CombineMoya
 
 public protocol CatService {

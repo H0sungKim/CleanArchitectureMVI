@@ -6,9 +6,8 @@
 //
 
 import Foundation
-import Moya
 import Combine
 
 public protocol CatRepository {
-    func fetchCats(count: Int) -> AnyPublisher<[CatEntity], MoyaError>
+    func fetchCats(count: Int) -> AnyPublisher<[CatEntity], Error>
 }

@@ -25,11 +25,10 @@ let package = Package(
         .target(
             name: "Data",
             dependencies: [
-                "Domain",
+                .product(name: "Domain", package: "Domain"),
                 .product(name: "Moya", package: "Moya"),
                 .product(name: "CombineMoya", package: "Moya"),
             ],
         ),
-
     ]
 )
