@@ -57,7 +57,7 @@ public struct CatResponseDTO: DTO {
     let breeds: [Breed]?
     
     init(entity: CatEntity) {
-        self.id = nil
+        self.id = entity.id
         self.url = entity.imageUrl?.absoluteString
         self.width = Int(entity.size.width)
         self.height = Int(entity.size.height)
@@ -104,6 +104,7 @@ extension CatResponseDTO {
     var entity: CatEntity {
         get {
             return CatEntity(
+                id: self.id ?? "",
                 imageUrl: URL(string: self.url ?? ""),
                 size: {
                     guard let width = self.width, let height = self.height else {

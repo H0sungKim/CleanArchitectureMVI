@@ -18,9 +18,9 @@ public final class Store<State, Action>: ObservableObject {
     
     @Published public private(set) var state: State
     
-    public init<R: Reducer<State, Action>>(initialState: R.State, reducer: R) { // where R.State == State, R.Action == Action
-        state = initialState
+    public init<R: Reducer<State, Action>>(reducer: R, initialState: State) {
         self.reducer = reducer
+        state = initialState
     }
     
     public func send(_ action: Action) {

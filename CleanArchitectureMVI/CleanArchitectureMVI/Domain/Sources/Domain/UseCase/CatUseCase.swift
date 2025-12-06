@@ -23,3 +23,18 @@ public final class DefaultCatUseCase: CatUseCase {
         return catRepository.fetchCats(count: count)
     }
 }
+
+public final class MockCatUseCase: CatUseCase {
+    
+    public init() {
+        
+    }
+    
+    public func fetchCats(count: Int) -> AnyPublisher<[CatEntity], Error> {
+        return Just(
+            [CatEntity(id: UUID().uuidString, imageUrl: URL(string: "https://lv2-cdn.azureedge.net/jypark/f8ba911ed379439fbe831212be8701f9-231103%206PM%20%EB%B0%95%EC%A7%84%EC%98%81%20Conceptphoto03(Clean).jpg"), size: .zero, species: "냐옹", features: "박진냥이에용~", wikipedia: URL(string: "https://en.wikipedia.org/wiki/J.Y._Park"))]
+        )
+        .setFailureType(to: Error.self)
+        .eraseToAnyPublisher()
+    }
+}

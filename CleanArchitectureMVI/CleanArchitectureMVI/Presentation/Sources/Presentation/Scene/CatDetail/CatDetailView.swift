@@ -7,11 +7,17 @@
 
 import SwiftUI
 
-struct CatDetailView: View {
-    var body: some View {
+public struct CatDetailView: View {
+    
+    public init() {
+        
+    }
+    
+    public var body: some View {
         Button("안녕", action: {
             print("")
         })
+//        Link("", destination: <#T##URL#>)
     }
 }
 

@@ -12,7 +12,7 @@ import Presentation
 struct CleanArchitectureMVIApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            RootView()
         }
     }
 }

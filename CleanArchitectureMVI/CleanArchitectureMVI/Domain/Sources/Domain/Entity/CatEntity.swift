@@ -8,18 +8,24 @@
 import Foundation
 import CoreGraphics
 
-public struct CatEntity: Entity {
+public struct CatEntity: Entity, Equatable, Identifiable {
+    public let id: String
     public let imageUrl: URL?
     public let size: CGSize
     public let species: String
     public let features: String
     public let wikipedia: URL?
     
-    public init(imageUrl: URL?, size: CGSize, species: String, features: String, wikipedia: URL?) {
+    public init(id: String, imageUrl: URL?, size: CGSize, species: String, features: String, wikipedia: URL?) {
+        self.id = id
         self.imageUrl = imageUrl
         self.size = size
         self.species = species
         self.features = features
         self.wikipedia = wikipedia
+    }
+    
+    public static func == (lhs: Self, rhs: Self) -> Bool {
+        return lhs.id == rhs.id
     }
 }
