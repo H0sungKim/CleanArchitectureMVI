@@ -16,19 +16,14 @@ public final class CatDetailReducer: Reducer {
     }
     
     public enum Action {
-        case release
+        
     }
     
-    private let catUseCase: CatUseCase
-    
-    public init(catUseCase: CatUseCase) {
-        self.catUseCase = catUseCase
+    public init() {
+        
     }
     
     public func reduce(into state: inout State, action: Action) -> Effect<Action> {
-        switch action {
-        case .release:
-            return .none
-        }
+        
     }
 }

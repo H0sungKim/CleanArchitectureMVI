@@ -13,12 +13,12 @@ import Combine
 @MainActor
 public final class Store<State, Action>: ObservableObject {
     
-    private let reducer: any Reducer<State, Action>
+    private let reducer: AnyReducer<State, Action>
     private var cancellables: Set<AnyCancellable> = []
     
     @Published public private(set) var state: State
     
-    public init<R: Reducer<State, Action>>(reducer: R, initialState: State) {
+    public init(reducer: AnyReducer<State, Action>, initialState: State) {
         self.reducer = reducer
         state = initialState
     }

@@ -5,22 +5,24 @@
 //  Created by 김호성 on 2025.12.03.
 //
 
+import Domain
+
 import SwiftUI
 
 public struct CatDetailView: View {
     
-    public init() {
-        
+    @EnvironmentObject private var appCoordinator: AppCoordinator
+    @StateObject private var catDetailStore: StoreOf<CatDetailReducer>
+    
+    public init(catDetailStore: StoreOf<CatDetailReducer>) {
+        _catDetailStore = StateObject(wrappedValue: catDetailStore)
+    }
+    
+    public init(catEntity: CatEntity) {
+        _catDetailStore = StateObject(wrappedValue: Store(reducer: AnyReducer(CatDetailReducer()), initialState: .init(catEntity: catEntity)))
     }
     
     public var body: some View {
-        Button("안녕", action: {
-            print("")
-        })
-//        Link("", destination: <#T##URL#>)
+        Text(catDetailStore.state.catEntity.species)
     }
-}
-
-#Preview {
-    CatDetailView()
 }

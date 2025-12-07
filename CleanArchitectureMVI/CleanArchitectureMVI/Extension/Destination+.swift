@@ -15,8 +15,8 @@ extension Destination {
         switch self {
         case .catList:
             CatListView(catUseCase: di.buildCatUseCase())
-        case .catDetail:
-            CatDetailView()
+        case .catDetail(let catEntity):
+            CatDetailView(catEntity: catEntity)
         }
     }
 }

@@ -8,7 +8,7 @@
 import Foundation
 import CoreGraphics
 
-public struct CatEntity: Entity, Equatable, Identifiable {
+public struct CatEntity: Entity, Equatable, Identifiable, Hashable {
     public let id: String
     public let imageUrl: URL?
     public let size: CGSize

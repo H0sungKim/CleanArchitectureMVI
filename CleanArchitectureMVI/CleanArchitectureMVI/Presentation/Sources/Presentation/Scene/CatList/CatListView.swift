@@ -22,21 +22,26 @@ public struct CatListView: View {
     
     public init(catUseCase: CatUseCase) {
         let catListReducer = CatListReducer(catUseCase: catUseCase)
-        _catListStore = StateObject(wrappedValue: Store(reducer: catListReducer, initialState: .init()))
+        _catListStore = StateObject(wrappedValue: Store(reducer: AnyReducer(catListReducer), initialState: .init()))
     }
     
     public var body: some View {
         VStack {
             catList
             catAdoptInputView
+                .padding(.horizontal, 8)
+                .safeAreaPadding(.bottom, 16)
         }
-        
     }
     
     private var catList: some View {
         List(catListStore.state.adoptedCats) { adoptedCat in
             CatRow(catEntity: adoptedCat)
+                .onTapGesture {
+                    appCoordinator.push(to: .catDetail(adoptedCat))
+                }
         }
+        .listStyle(.plain)
     }
     
     private var catAdoptInputView: some View {
@@ -75,16 +80,19 @@ private struct CatRow: View {
         KFImage(catEntity.imageUrl)
             .resizable()
             .scaledToFill()
-            .clipped()
             .frame(width: 128, height: 128)
+            .clipped()
     }
     
     private var catInfoView: some View {
         VStack(alignment: .leading) {
             Text(catEntity.species)
+                .font(.title2)
             Text(catEntity.features)
+                .font(.body)
             if let wikipedia = catEntity.wikipedia {
                 Link("Wikipedia", destination: wikipedia)
+                    .foregroundStyle(.blue)
             }
         }
     }

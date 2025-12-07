@@ -12,5 +12,3 @@ public protocol Reducer<State, Action> {
     
     func reduce(into state: inout State, action: Action) -> Effect<Action>
 }
-
-public typealias ReducerOf<R: Reducer> = Reducer<R.State, R.Action>

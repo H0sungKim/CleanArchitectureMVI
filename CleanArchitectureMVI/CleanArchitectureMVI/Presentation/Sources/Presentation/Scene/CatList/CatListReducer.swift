@@ -22,7 +22,7 @@ public final class CatListReducer: Reducer {
         case adoptCountChanged(Int?)
         case adoptButtonTapped
         case catsFetched([CatEntity])
-        case releaseCat(CatEntity)
+        case release(CatEntity)
     }
     
     private let catUseCase: CatUseCase
@@ -58,7 +58,7 @@ public final class CatListReducer: Reducer {
             state.adoptedCats.append(contentsOf: catEntities)
             return .none
             
-        case .releaseCat(let catEntity):
+        case .release(let catEntity):
             state.adoptedCats.removeAll(where: { $0 == catEntity })
             return .none
             
